@@ -11,7 +11,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-1 pb-12">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-2 pb-12">
       {/* Background with padding for spacing */}
       <div className="w-full max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         
