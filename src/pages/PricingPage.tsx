@@ -31,64 +31,156 @@ export default function PricingPage() {
 
   const pricingData: PricingData = {
     seo: [
-      {
-        name: 'SEO Starter Plan',
-        icon: 'rocket',
-        monthlyPrice: 200,
-        yearlyPrice: 2040,
-        popular: false,
-        features: ['5 Keywords Tracking', 'Basic On-Page SEO', 'Monthly Reports', 'Email Support'],
-        services: [
-          { title: 'SEO ANALYSIS', icon: 'chart', items: ['Keyword Research & Analysis', 'Baseline Ranking Check', 'Duplicate Content Check', 'Google Penalty Check'] },
-          { title: 'ON-PAGE OPTIMIZATION', icon: 'settings', items: ['Title Tag Optimization', 'META Tags Optimization', 'Content Optimization', 'Image Alt Tags', 'Internal Linking'] }
-        ]
-      },
-      {
-        name: 'SEO Basic Plan',
-        icon: 'chart',
-        monthlyPrice: 300,
-        yearlyPrice: 3060,
-        popular: false,
-        features: ['10 Keywords Tracking', 'On-Page SEO', 'Technical Audit', 'Bi-weekly Reports', 'Priority Support'],
-        services: [{ title: 'SEO ANALYSIS', icon: 'chart', items: ['Keyword Research & Analysis', 'Competitor Analysis', 'Baseline Ranking Check'] }]
-      },
-      {
-        name: 'SEO Standard Plan',
-        icon: 'star',
-        monthlyPrice: 450,
-        yearlyPrice: 4590,
-        popular: true,
-        features: ['25 Keywords Tracking', 'Link Building', 'Content Optimization', 'Competitor Analysis', 'Weekly Reports', 'Dedicated Manager'],
-        services: [{ title: 'COMPLETE SEO', icon: 'chart', items: ['Everything in Basic', 'Advanced Link Building', 'Content Strategy'] }]
-      },
-      {
-        name: 'SEO Premium Plan',
-        icon: 'crown',
-        monthlyPrice: 700,
-        yearlyPrice: 7140,
-        popular: false,
-        features: ['50 Keywords Tracking', 'Advanced Technical SEO', 'Local SEO', 'Content Creation', 'Daily Monitoring'],
-        services: []
-      },
-      {
-        name: 'SEO Enterprise Plan',
-        icon: 'building',
-        monthlyPrice: 1200,
-        yearlyPrice: 12240,
-        popular: false,
-        features: ['Unlimited Keywords', 'Full SEO Suite', 'Custom Strategy', 'White-label Reports', '24/7 Support'],
-        services: []
-      }
+  {
+    name: 'BASIC',
+    icon: 'rocket',
+    monthlyPrice: 500,
+    yearlyPrice: 500 * 12 * 0.85,
+    popular: false,
+    features: [
+      'No. of Keywords – 30',
+      'Backlinks per month – 40',
+      'Target Pages Optimized – Up to 10',
+      'GBP (GMB) – ✗',
+      'Geotagging – ✗',
+      '*G.E.O – ✗',
+      '**A.E.O – ✗'
     ],
+    services: []
+  },
+  {
+    name: 'SILVER',
+    icon: 'chart',
+    monthlyPrice: 800,
+    yearlyPrice: 800 * 12 * 0.85,
+    popular: false,
+    features: [
+      'No. of Keywords – 40',
+      'Backlinks per month – 60',
+      'Target Pages Optimized – Up to 15',
+      'GBP (GMB) – ✓',
+      'Geotagging – ✗',
+      '*G.E.O – ✗',
+      '**A.E.O – ✗'
+    ],
+    services: []
+  },
+  {
+    name: 'GOLD',
+    icon: 'star',
+    monthlyPrice: 1200,
+    yearlyPrice: 1200 * 12 * 0.85,
+    popular: true, // BEST SELLER highlight
+    features: [
+      'No. of Keywords – 50',
+      'Backlinks per month – 100',
+      'Target Pages Optimized – Up to 25',
+      'GBP (GMB) – ✓',
+      'Geotagging – ✓',
+      '*G.E.O – ✗',
+      '**A.E.O – ✗'
+    ],
+    services: []
+  },
+  {
+    name: 'PREMIUM',
+    icon: 'crown',
+    monthlyPrice: 1800,
+    yearlyPrice: 1800 * 12 * 0.85,
+    popular: false,
+    features: [
+      'No. of Keywords – 100',
+      'Backlinks per month – 200',
+      'Target Pages Optimized – Up to 40',
+      'GBP (GMB) – ✓',
+      'Geotagging – ✓',
+      '*G.E.O – ✓',
+      '**A.E.O – ✓'
+    ],
+    services: []
+  },
+  {
+    name: 'Enterprise',
+    icon: 'building',
+    monthlyPrice: 2500,
+    yearlyPrice: 2500 * 12 * 0.85,
+    popular: false,
+    features: [
+      'No. of Keywords – Unlimited',
+      'Backlinks per month – 300+',
+      'Target Pages Optimized – Up to 60',
+      'GBP (GMB) – ✓',
+      'Geotagging – ✓',
+      '*G.E.O – ✓',
+      '**A.E.O – ✓'
+    ],
+    services: []
+  }
+],
     smo: [
       { name: 'Starter SMO', icon: 'rocket', monthlyPrice: 300, yearlyPrice: 3060, popular: false, features: ['2 Social Platforms', '10 Posts per Month', 'Basic Analytics'], services: [] },
       { name: 'Professional SMO', icon: 'chart', monthlyPrice: 500, yearlyPrice: 5100, popular: true, features: ['4 Social Platforms', '20 Posts per Month', 'Advanced Analytics'], services: [] },
       { name: 'Enterprise SMO', icon: 'crown', monthlyPrice: 800, yearlyPrice: 8160, popular: false, features: ['All Platforms', '30+ Posts', 'Influencer Outreach'], services: [] }
     ],
     ppc: [
-      { name: 'Starter PPC', icon: 'rocket', monthlyPrice: 500, yearlyPrice: 5100, popular: false, features: ['Google Ads Setup', '$1000 Ad Budget'], services: [] },
-      { name: 'Professional PPC', icon: 'chart', monthlyPrice: 900, yearlyPrice: 9180, popular: true, features: ['Multi-Platform', '$2500 Budget', 'A/B Testing'], services: [] }
+  {
+    name: 'BASIC',
+    icon: 'rocket',
+    monthlyPrice: 300,
+    yearlyPrice: 300 * 12 * 0.85,
+    popular: false,
+    features: [
+      'Setup Fee – $200',
+      'Advertising Budget – up to $1000/month',
+      'Full Optimizations – 1/month',
+      'Ad Groups – Up To 5'
     ],
+    services: []
+  },
+  {
+    name: 'SILVER',
+    icon: 'chart',
+    monthlyPrice: 400,
+    yearlyPrice: 400 * 12 * 0.85,
+    popular: false,
+    features: [
+      'Setup Fee – $350',
+      'Advertising Budget – up to $2000/month',
+      'Full Optimizations – 2/month',
+      'Ad Groups – Up To 10'
+    ],
+    services: []
+  },
+  {
+    name: 'GOLD',
+    icon: 'star',
+    monthlyPrice: 600,
+    yearlyPrice: 600 * 12 * 0.85,
+    popular: true, // BEST SELLER highlight ayega
+    features: [
+      'Setup Fee – $500',
+      'Advertising Budget – up to $3000/month',
+      'Full Optimizations – 3/month',
+      'Ad Groups – Up To 20'
+    ],
+    services: []
+  },
+  {
+    name: 'PREMIUM',
+    icon: 'crown',
+    monthlyPrice: 800,
+    yearlyPrice: 800 * 12 * 0.85,
+    popular: false,
+    features: [
+      'Setup Fee – $750',
+      'Advertising Budget – above $3000/month',
+      'Full Optimizations – 5/month',
+      'Ad Groups – Up To 40'
+    ],
+    services: []
+  }
+],
+
     'web-dev': [
       { name: 'Basic Website', icon: 'code', monthlyPrice: 1000, yearlyPrice: 10200, popular: false, features: ['5 Pages', 'Responsive Design', 'SEO Friendly'], services: [] },
       { name: 'Professional Website', icon: 'desktop', monthlyPrice: 2000, yearlyPrice: 20400, popular: true, features: ['10 Pages', 'Custom Design', 'CMS'], services: [] }
