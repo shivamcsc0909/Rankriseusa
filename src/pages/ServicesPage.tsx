@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Search, Share2, Code, Brain, Megaphone, BarChart3, CheckCircle, ArrowRight, Rocket, Target, Zap, Users, TrendingUp, Shield, Sparkles, Star } from 'lucide-react';
+import { Search, Share2, Code, Brain, Megaphone, BarChart3, CheckCircle, ArrowRight, Rocket, Target, Zap, Users, TrendingUp, Shield, Sparkles, Star, PenTool, Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -7,58 +7,132 @@ export default function ServicesPage() {
   const services = [
     {
       icon: Search,
-      title: 'SEO That Actually Ranks',
-      description: 'We got a fintech startup from 0 to 150K monthly visitors in 6 months. Our clients rank #1 for high-intent keywords and print money from Google.',
-      features: ['Rank in top 3 for your niche', 'Triple organic traffic in 90 days', 'Technical SEO that Google loves', 'Content that converts searchers'],
+      title: 'SEO Services',
+      definition: 'Search Engine Optimization (SEO) is the art and science of optimizing your website to rank higher on search engines like Google, driving organic traffic and increasing visibility.',
+      benefits: [
+        'Rank on first page for high-value keywords',
+        'Increase qualified organic traffic by 300%+',
+        'Build sustainable long-term growth',
+        'Outrank competitors consistently'
+      ],
+      whyChooseUs: 'We use proprietary ranking algorithms and white-hat techniques that have helped clients achieve #1 rankings in competitive niches. Our data-driven approach ensures every optimization drives real business results.',
       color: 'from-blue-500 to-cyan-500',
       price: 'From $2,999/mo',
       results: '+350% Traffic',
+      cta: 'Get SEO That Ranks'
     },
     {
       icon: Share2,
-      title: 'Social Media That Sells',
-      description: 'One wellness brand went from 3K to 200K followers in 8 months. We create content that goes viral and audiences that buy on repeat.',
-      features: ['Viral content frameworks', 'Community that loves your brand', 'Influencer partnerships that pay', 'Ads with 5x+ ROAS'],
+      title: 'Social Media Marketing (SMM)',
+      definition: 'Strategic social media management that transforms your profiles into powerful revenue-generating channels through engaging content and targeted audience growth.',
+      benefits: [
+        'Grow engaged followers rapidly',
+        'Generate consistent leads and sales',
+        'Build brand authority and trust',
+        'Drive website traffic from social platforms'
+      ],
+      whyChooseUs: 'Our viral content frameworks and community-building strategies have helped brands gain 200K+ followers in months. We create content that people actually want to share and engage with.',
       color: 'from-purple-500 to-pink-500',
       price: 'From $1,999/mo',
       results: '200K Followers',
-    },
-    {
-      icon: Code,
-      title: 'Websites That Print Money',
-      description: 'Our e-commerce sites convert at 8-15% (industry avg: 2%). Lightning fast. Mobile-perfect. Built to make you rich, not just look pretty.',
-      features: ['Sub-2 second load times', '15%+ conversion rates', 'Mobile-first design', 'Built for scale, not ego'],
-      color: 'from-green-500 to-emerald-500',
-      price: 'From $7,999',
-      results: '15% Conversion',
-    },
-    {
-      icon: Brain,
-      title: 'AI That Works 24/7',
-      description: 'Automated a SaaS company\'s support (saved $400K/year). Cut response time from 6 hours to 30 seconds. Your team focuses on growth, not busywork.',
-      features: ['AI chatbots that feel human', '80% automation rate', 'Instant customer support', 'Predictive analytics'],
-      color: 'from-orange-500 to-red-500',
-      price: 'From $4,999',
-      results: '$400K Saved',
+      cta: 'Go Viral Now'
     },
     {
       icon: Megaphone,
-      title: 'Brands People Remember',
-      description: 'Rebranded a B2B SaaS that looked like everyone else. Result? 3x inbound leads and featured in TechCrunch. Your brand should demand attention.',
-      features: ['Brand strategy that sells', 'Logo & identity that pops', 'Complete brand guidelines', 'Market positioning'],
+      title: 'Social Media Optimization (SMO)',
+      definition: 'Optimizing your social media presence across all platforms to maximize visibility, engagement, and conversion rates through strategic profile enhancements.',
+      benefits: [
+        'Optimize profiles for maximum reach',
+        'Increase engagement rates significantly',
+        'Improve brand consistency across platforms',
+        'Enhance social media conversion rates'
+      ],
+      whyChooseUs: 'We go beyond basic posting - we optimize every element of your social presence from bios to visuals, ensuring you get the maximum ROI from your social media efforts.',
       color: 'from-indigo-500 to-blue-500',
-      price: 'From $5,999',
-      results: '3x Leads',
+      price: 'From $1,499/mo',
+      results: '3x Engagement',
+      cta: 'Optimize Profiles'
     },
     {
-      icon: BarChart3,
-      title: 'Analytics That Matter',
-      description: 'Stop drowning in vanity metrics. We build dashboards that show exactly what drives revenue and where to double down.',
-      features: ['Real-time revenue tracking', 'Custom dashboards', 'Attribution modeling', 'Weekly performance reports'],
-      color: 'from-yellow-500 to-orange-500',
-      price: 'From $1,499/mo',
-      results: '10x Better Insights',
+      icon: TrendingUp,
+      title: 'PPC Advertising',
+      definition: 'Pay-Per-Click advertising that puts your business in front of ready-to-buy customers through strategic ad placements on Google, social media, and other platforms.',
+      benefits: [
+        'Get immediate targeted traffic',
+        'Pay only for actual results',
+        'Scale profitable campaigns rapidly',
+        'Reach high-intent buyers instantly'
+      ],
+      whyChooseUs: 'Our PPC experts have generated over $50M in client revenue through meticulously optimized campaigns. We focus on ROI, not just clicks, ensuring every dollar spent drives revenue.',
+      color: 'from-green-500 to-emerald-500',
+      price: 'From $2,499/mo',
+      results: '5x ROAS',
+      cta: 'Launch Campaign'
     },
+    {
+      icon: PenTool,
+      title: 'Content Writing',
+      definition: 'Strategic content creation that engages your audience, builds authority, and drives conversions through compelling copy and SEO-optimized writing.',
+      benefits: [
+        'Establish thought leadership',
+        'Improve SEO rankings with quality content',
+        'Engage and convert visitors',
+        'Build trust with your audience'
+      ],
+      whyChooseUs: 'Our writers are conversion experts who understand both SEO and human psychology. We create content that ranks, engages, and converts - not just fills pages.',
+      color: 'from-orange-500 to-red-500',
+      price: 'From $1,199/mo',
+      results: '300% More Conversions',
+      cta: 'Get Quality Content'
+    },
+    {
+      icon: Code,
+      title: 'Web Development',
+      definition: 'Building high-converting, lightning-fast websites that provide exceptional user experiences and drive business growth through superior technical execution.',
+      benefits: [
+        'Lightning fast load times (<2 seconds)',
+        'Mobile-optimized responsive design',
+        'Higher conversion rates (15%+)',
+        'Scalable and secure architecture'
+      ],
+      whyChooseUs: 'We build websites that actually make money. Our development focus is on performance, conversion optimization, and user experience - not just pretty designs.',
+      color: 'from-yellow-500 to-amber-500',
+      price: 'From $7,999',
+      results: '15% Conversion',
+      cta: 'Build Your Site'
+    },
+    {
+      icon: Smartphone,
+      title: 'App Development',
+      definition: 'Creating powerful, user-friendly mobile applications that solve real business problems and provide exceptional value to your customers.',
+      benefits: [
+        'Reach customers on mobile devices',
+        'Provide seamless user experiences',
+        'Increase customer engagement',
+        'Generate additional revenue streams'
+      ],
+      whyChooseUs: 'Our app development team combines cutting-edge technology with user-centric design to create apps that people love to use and that drive real business results.',
+      color: 'from-pink-500 to-rose-500',
+      price: 'From $12,999',
+      results: '4.8 Star Ratings',
+      cta: 'Develop Your App'
+    },
+    {
+      icon: Brain,
+      title: 'AI Solutions',
+      definition: 'Implementing artificial intelligence and automation to streamline operations, enhance customer experiences, and drive efficiency across your business.',
+      benefits: [
+        'Automate repetitive tasks',
+        'Provide 24/7 customer support',
+        'Gain data-driven insights',
+        'Improve operational efficiency'
+      ],
+      whyChooseUs: 'We build practical AI solutions that deliver immediate value. From chatbots to predictive analytics, we implement AI that works and scales with your business.',
+      color: 'from-teal-500 to-cyan-500',
+      price: 'From $4,999',
+      results: '$400K Saved',
+      cta: 'Automate Now'
+    }
   ];
 
   const process = [
@@ -149,18 +223,18 @@ export default function ServicesPage() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 mb-6"
             >
               <Sparkles className="w-4 h-4 text-purple-600" />
-              <span className="text-sm font-bold text-purple-800">Services That Scale Startups</span>
+              <span className="text-sm font-bold text-purple-800">Premium Digital Services</span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight text-gray-900">
-              We Don't Just Build.{' '}
+              Digital Services That{' '}
               <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
-                We Grow Empires.
+                Drive Real Results
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              From zero to millions in revenue. SEO that ranks #1. Websites that convert at 15%+. AI that saves 20 hours/week. This is how winners scale.
+              From SEO that ranks #1 to websites that convert at 15%+. Every service is designed to grow your business and maximize ROI.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -210,8 +284,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 sm:py-24 bg-gradient-to-br from-gray-50 to-white">
+      {/* Services Grid - Restructured */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -220,15 +294,14 @@ export default function ServicesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-black mb-4 text-gray-900">
-              Services That Made Our Clients{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">$50M+ Richer</span>
+              Our Digital <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Services</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Real case studies. Real numbers. Real results. This is what separates winners from wannabes.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions designed to scale your business and drive measurable results
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -236,49 +309,78 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="group relative bg-white rounded-2xl p-7 shadow-lg hover:shadow-2xl transition-all border border-gray-200"
+                className={`mb-16 bg-gradient-to-r ${service.color} rounded-2xl overflow-hidden shadow-2xl`}
               >
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
+                <div className="bg-white p-8 md:p-12 rounded-2xl m-1">
+                  <div className="grid md:grid-cols-3 gap-8 items-start">
+                    {/* Left Column - Service Overview */}
+                    <div className="md:col-span-2">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg`}>
+                          <service.icon className="w-7 h-7 text-white" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-gray-900">{service.title}</h3>
+                      </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                      {/* Service Definition */}
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">What is {service.title}?</h4>
+                        <p className="text-gray-600 leading-relaxed">{service.definition}</p>
+                      </div>
 
-                {/* Description */}
-                <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
+                      {/* Benefits Section */}
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">How It Helps Your Business:</h4>
+                        <ul className="grid sm:grid-cols-2 gap-3">
+                          {service.benefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-gray-700">
+                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-sm">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                {/* Features */}
-                <ul className="space-y-2 mb-5">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                      {/* Why Choose Rankrise */}
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">Why Choose Rankrise for {service.title}:</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{service.whyChooseUs}</p>
+                      </div>
+                    </div>
 
-                {/* Price & Results */}
-                <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs text-gray-500 mb-1">Starting at</p>
-                    <p className="text-lg font-bold text-gray-900">{service.price}</p>
+                    {/* Right Column - Pricing & CTA */}
+                    <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                      <div className="text-center mb-6">
+                        <p className="text-sm text-gray-500 mb-1">Starting at</p>
+                        <p className="text-2xl font-bold text-gray-900">{service.price}</p>
+                        <div className={`mt-2 px-4 py-1 rounded-full bg-gradient-to-r ${service.color} bg-opacity-10 text-sm font-bold text-gray-800`}>
+                          {service.results}
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                          <Button className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white font-semibold py-3`}>
+                            {service.cta}
+                          </Button>
+                        </motion.div>
+                        
+                        <div className="text-center">
+                          <Link to="/contact" className="text-sm text-gray-600 hover:text-gray-800 underline">
+                            Schedule Free Consultation
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-gray-200">
+                        <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span>30-day results guarantee</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${service.color} bg-opacity-10 text-xs font-bold`}>
-                    {service.results}
-                  </div>
                 </div>
-
-                {/* Bottom Accent */}
-                <motion.div
-                  className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color}`}
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                />
               </motion.div>
             ))}
           </div>
@@ -286,7 +388,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 sm:py-24 bg-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -297,7 +399,7 @@ export default function ServicesPage() {
             <h2 className="text-4xl sm:text-5xl font-black mb-4 text-gray-900">
               How We <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Work</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Simple, transparent process. No hidden fees, no surprises.
             </p>
           </motion.div>
@@ -326,7 +428,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -372,10 +474,10 @@ export default function ServicesPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-white">
-              Let's Turn Your Vision Into Millions
+              Ready to Transform Your Business?
             </h2>
             <p className="text-xl sm:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
-              Free 30-min strategy call. We'll show you the exact playbook we used to grow 500+ businesses. No pitch, just pure value.
+              Free 30-min strategy call. We'll analyze your business and show you the exact strategy to achieve your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -389,7 +491,7 @@ export default function ServicesPage() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link to="/portfolio">
                   <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-base font-bold">
-                    See $50M+ in Client Results
+                    See Client Results
                   </Button>
                 </Link>
               </motion.div>

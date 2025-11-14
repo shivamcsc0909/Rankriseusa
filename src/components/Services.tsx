@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { Search, Share2, Code, Brain, Megaphone, BarChart3, ArrowRight, Sparkles, Zap } from 'lucide-react';
+import { Search, Share2, Code, Brain, Megaphone, BarChart3, ArrowRight, Sparkles, Zap, ShoppingCart } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -20,6 +20,7 @@ export default function Services() {
       expertise: 95,
       details: 'Our SEO experts use cutting-edge strategies to boost your visibility. From technical audits to content optimization, we handle everything to get you on page one.',
       features: ['Keyword Strategy', 'Technical Audits', 'Backlink Building', 'Local SEO'],
+      price: '$999',
     },
     {
       icon: Share2,
@@ -31,6 +32,7 @@ export default function Services() {
       expertise: 90,
       details: 'We craft viral-worthy content and data-driven campaigns that resonate with your target audience across all major platforms.',
       features: ['Viral Content', 'Influencer Marketing', 'Ad Campaigns', 'Growth Hacking'],
+      price: '$799',
     },
     {
       icon: Code,
@@ -42,6 +44,7 @@ export default function Services() {
       expertise: 98,
       details: 'From landing pages to complex web apps, we build digital experiences that users love and Google rewards.',
       features: ['React & Next.js', 'Mobile-First', 'E-commerce', 'API Integration'],
+      price: '$1,299',
     },
     {
       icon: Brain,
@@ -53,6 +56,7 @@ export default function Services() {
       expertise: 92,
       details: 'Implement AI-powered chatbots, workflow automation, and smart analytics to work smarter, not harder.',
       features: ['Smart Chatbots', 'Workflow AI', 'Data Intelligence', 'Process Mining'],
+      price: '$1,199',
     },
     {
       icon: Megaphone,
@@ -64,6 +68,7 @@ export default function Services() {
       expertise: 88,
       details: 'We help startups build powerful brands from scratch - from logo design to complete brand guidelines and messaging.',
       features: ['Logo Design', 'Brand Voice', 'Style Guides', 'Market Positioning'],
+      price: '$899',
     },
     {
       icon: BarChart3,
@@ -75,8 +80,17 @@ export default function Services() {
       expertise: 94,
       details: 'Get real-time dashboards, actionable insights, and growth metrics that actually help you make better business decisions.',
       features: ['Custom Dashboards', 'A/B Testing', 'Funnel Analysis', 'ROI Tracking'],
+      price: '$699',
     },
   ];
+
+  const handleBuyNow = (service: any, e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Here you can implement the buy now logic
+    console.log(`Buy Now clicked for: ${service.title} at ${service.price}`);
+    // You can redirect to checkout, open a payment modal, etc.
+    alert(`Proceeding to checkout for ${service.title} - ${service.price}`);
+  };
 
   return (
     <section id="services" className="py-4 sm:py-6 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-purple-50/30">
@@ -149,6 +163,7 @@ export default function Services() {
               service={service}
               index={index}
               onClick={() => setSelectedService(index)}
+              onBuyNow={handleBuyNow}
               isHovered={hoveredIndex === index}
               onHover={() => setHoveredIndex(index)}
               onLeave={() => setHoveredIndex(null)}
@@ -230,13 +245,40 @@ export default function Services() {
                   <Progress value={services[selectedService].expertise} className="h-3" />
                 </div>
 
-                {/* CTA Button */}
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button className={`w-full bg-gradient-to-r ${services[selectedService].color} hover:opacity-90 text-white py-6 text-base font-semibold shadow-xl`}>
-                    Get Started with This Service
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </motion.div>
+                {/* Pricing */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="font-bold text-lg text-gray-900">Starting at</h4>
+                      <p className="text-gray-600">One-time payment • No hidden fees</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-3xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        {services[selectedService].price}
+                      </span>
+                      <p className="text-sm text-gray-600">One-time payment</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex gap-3">
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+                    <Button className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white py-6 text-base font-semibold shadow-xl">
+                      Learn More Details
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+                    <Button 
+                      className={`w-full bg-gradient-to-r ${services[selectedService].color} hover:opacity-90 text-white py-6 text-base font-semibold shadow-xl`}
+                      onClick={() => handleBuyNow(services[selectedService], { stopPropagation: () => {} } as React.MouseEvent)}
+                    >
+                      <ShoppingCart className="mr-2 w-5 h-5" />
+                      Buy Now
+                    </Button>
+                  </motion.div>
+                </div>
               </div>
             </>
           )}
@@ -247,7 +289,7 @@ export default function Services() {
 }
 
 // Modern Glassmorphism Service Card Component
-function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: any) {
+function ServiceCard({ service, index, onClick, onBuyNow, isHovered, onHover, onLeave }: any) {
   const cardRef = useRef<HTMLDivElement>(null);
   
   const mouseX = useMotionValue(0);
@@ -274,6 +316,11 @@ function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: a
     rotateX.set(0);
     rotateY.set(0);
     onLeave();
+  };
+
+  const handleBuyNowClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onBuyNow(service, e);
   };
 
   return (
@@ -309,7 +356,7 @@ function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: a
       >
         {/* Glassmorphism Card */}
         <div 
-          className={`relative h-full min-h-[380px] bg-white/80 backdrop-blur-xl rounded-2xl p-7 border border-gray-200/50 shadow-xl overflow-hidden group-hover:shadow-2xl transition-all duration-500`}
+          className={`relative h-full min-h-[420px] bg-white/80 backdrop-blur-xl rounded-2xl p-7 border border-gray-200/50 shadow-xl overflow-hidden group-hover:shadow-2xl transition-all duration-500`}
         >
           {/* Background Gradient */}
           <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
@@ -353,12 +400,22 @@ function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: a
             </h3>
 
             {/* Description */}
-            <p className="text-sm text-gray-600 mb-6 flex-grow leading-relaxed">
+            <p className="text-sm text-gray-600 mb-4 flex-grow leading-relaxed">
               {service.description}
             </p>
 
+            {/* Pricing */}
+            <div className="mb-4">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {service.price}
+                </span>
+                <span className="text-sm text-gray-500">one-time</span>
+              </div>
+            </div>
+
             {/* Expertise Bar */}
-            <div className="space-y-2 mb-3">
+            <div className="space-y-2 mb-4">
               <div className="flex justify-between items-center text-sm">
                 <span className="font-medium text-gray-700">Expertise</span>
                 <motion.span 
@@ -394,7 +451,7 @@ function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: a
               </div>
             </div>
 
-            {/* Learn More Button */}
+            {/* Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ 
@@ -402,12 +459,25 @@ function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: a
                 y: isHovered ? 0 : 10,
               }}
               transition={{ duration: 0.3 }}
-              className="mt-4 pt-4 border-t border-gray-200"
+              className="space-y-3 mt-2"
             >
-              <div className="flex items-center justify-between text-purple-600 font-semibold group/btn">
+              {/* Learn More Button */}
+              <div className="flex items-center justify-between text-purple-600 font-semibold group/btn px-2 py-2 rounded-lg hover:bg-purple-50 transition-colors duration-300">
                 <span className="text-sm">Learn More</span>
                 <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
               </div>
+
+              {/* Buy Now Button */}
+              <motion.button
+                onClick={handleBuyNowClick}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r ${service.color} text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300`}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Buy Now
+                <span className="text-white/90 text-xs">({service.price})</span>
+              </motion.button>
             </motion.div>
           </div>
 
