@@ -56,17 +56,12 @@ export default function Footer() {
   ];
 
   const address = "Amarpali Leisure Park B4 Flat 805, Greater Noida";
-  const mobileNumber = "+91 7704 074 403";
-  const whatsappLink = `https://wa.me/917704074403`;
-  
-  // Google Maps embed URL for Amarpali Leisure Park, Greater Noida
-  const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.060173769528!2d77.49818857526816!3d28.47447587575122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce826aafbd3c9%3A0x5e9373f4e7d8d2f7!2sAmarpali%20Leisure%20Park%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1699623456789!5m2!1sen!2sin`;
-
-  const internationalBranches = [
-    { country: 'UK', status: 'Coming Soon', flag: '🇬🇧' },
-    { country: 'USA', status: 'Coming Soon', flag: '🇺🇸' },
-    { country: 'UAE', status: 'Coming Soon', flag: '🇦🇪' },
+  const mobileNumbers = [
+    { number: "+91 9278 074 403", whatsapp: "919278074403" },
+    { number: "+91 7704 074 403", whatsapp: "917704074403" }
   ];
+  
+  const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.060173769528!2d77.49818857526816!3d28.47447587575122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce826aafbd3c9%3A0x5e9373f4e7d8d2f7!2sAmarpali%20Leisure%20Park%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1699623456789!5m2!1sen!2sin`;
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
@@ -99,32 +94,32 @@ export default function Footer() {
         />
       </div>
 
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Top Section */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 mb-8">
+      <div className="container mx-auto px-4 py-8 relative z-10">
+        {/* Main Footer Content - Compact Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 mb-4 cursor-pointer group"
+                className="flex items-center gap-3 mb-3 cursor-pointer group"
               >
                 <motion.img
                   src="/assets/images/logo.png"
                   alt="Rankrise Logo"
-                  className="h-12 w-auto object-contain"
+                  className="h-10 w-auto object-contain"
                   whileHover={{ rotate: [0, -5, 5, -5, 0] }}
                   transition={{ duration: 0.6 }}
                 />
               </motion.div>
             </Link>
             
-            <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+            <p className="text-gray-300 mb-3 leading-relaxed text-sm">
               Digital growth partners for ambitious startups. Smart marketing & powerful tech.
             </p>
             
-            {/* Newsletter */}
-            <div>
+            {/* Newsletter - More Compact */}
+            <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles className="w-4 h-4 text-purple-400" />
                 <p className="text-white font-semibold text-sm">Weekly Growth Tips</p>
@@ -137,23 +132,42 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:bg-white/20 focus:border-purple-400 h-10 text-sm"
+                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:bg-white/20 focus:border-purple-400 h-9 text-sm"
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button 
                     type="submit" 
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 h-10"
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-3 h-9"
                   >
                     <Mail className="w-4 h-4" />
                   </Button>
                 </motion.div>
               </form>
-              <p className="text-xs text-gray-400 mt-1">5,000+ subscribers</p>
+            </div>
+
+            {/* Social Links moved here */}
+            <div className="flex items-center gap-2">
+              {socialLinks.map(({ icon: Icon, href, color, label }, index) => (
+                <motion.a
+                  key={index}
+                  href={href}
+                  aria-label={label}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, type: 'spring' }}
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={`w-8 h-8 rounded-full bg-white/10 hover:text-white flex items-center justify-center transition-all ${color} text-gray-300`}
+                >
+                  <Icon className="w-4 h-4" />
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Links Columns - More Compact */}
           {Object.entries(footerLinks).map(([title, links], columnIndex) => (
             <motion.div
               key={title}
@@ -161,9 +175,10 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: columnIndex * 0.1 }}
+              className="text-center md:text-left"
             >
-              <h3 className="font-bold text-white mb-3 text-base">{title}</h3>
-              <ul className="space-y-2">
+              <h3 className="font-bold text-white mb-2 text-sm">{title}</h3>
+              <ul className="space-y-1">
                 {links.map((link, linkIndex) => (
                   <motion.li
                     key={link.name}
@@ -174,8 +189,8 @@ export default function Footer() {
                   >
                     <Link to={link.path}>
                       <motion.span
-                        whileHover={{ x: 5 }}
-                        className="text-gray-300 hover:text-purple-400 transition-colors inline-block cursor-pointer text-sm"
+                        whileHover={{ x: 3 }}
+                        className="text-gray-300 hover:text-purple-400 transition-colors inline-block cursor-pointer text-xs"
                       >
                         {link.name}
                       </motion.span>
@@ -186,108 +201,74 @@ export default function Footer() {
             </motion.div>
           ))}
 
-          {/* Contact & Location Section */}
+          {/* Contact Section - Much More Compact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="lg:col-span-2"
           >
-            <h3 className="font-bold text-white mb-3 text-base">Contact Info</h3>
+            <h3 className="font-bold text-white mb-2 text-sm">Contact Info</h3>
             
             {/* Address */}
-            <div className="flex items-start gap-2 mb-3">
-              <MapPin className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
-              <p className="text-gray-300 text-sm">
+            <div className="flex items-start gap-2 mb-2">
+              <MapPin className="w-3 h-3 text-purple-400 mt-1 flex-shrink-0" />
+              <p className="text-gray-300 text-xs leading-tight">
                 {address}
               </p>
             </div>
 
-            {/* Mobile Number with WhatsApp */}
-            <div className="flex items-center gap-2 mb-4">
-              <Phone className="w-4 h-4 text-purple-400" />
-              <a 
-                href={`tel:${mobileNumber}`}
-                className="text-gray-300 hover:text-purple-400 text-sm"
-              >
-                {mobileNumber}
-              </a>
+            {/* Mobile Numbers - Compact */}
+            <div className="space-y-1 mb-3">
+              {mobileNumbers.map((mobile, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <Phone className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                  <a 
+                    href={`tel:${mobile.number}`}
+                    className="text-gray-300 hover:text-purple-400 text-xs"
+                  >
+                    {mobile.number}
+                  </a>
+                </div>
+              ))}
             </div>
 
-            {/* WhatsApp Button */}
+            {/* WhatsApp Button - Smaller */}
             <motion.a
-              href={whatsappLink}
+              href={`https://wa.me/${mobileNumbers[0].whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors w-fit mb-6"
+              className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded text-xs w-fit mb-3"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span className="text-sm">Chat on WhatsApp</span>
+              <MessageCircle className="w-3 h-3" />
+              <span>WhatsApp</span>
             </motion.a>
 
-            {/* Map Box */}
-            <div className="bg-white/10 rounded-lg p-3 border border-white/20 mb-4">
-              <h4 className="text-white text-sm font-semibold mb-2">Our Location</h4>
-              <div className="w-full h-40 rounded overflow-hidden">
+            {/* Compact Map */}
+            <div className="bg-white/10 rounded border border-white/20 p-2">
+              <h4 className="text-white text-xs font-semibold mb-1">Our Location</h4>
+              <div className="w-full h-24 rounded overflow-hidden">
                 <iframe
                   src={mapEmbedUrl}
                   width="100%"
                   height="100%"
-                  style={{ border: 0, borderRadius: '8px' }}
+                  style={{ border: 0, borderRadius: '4px' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Rankrise Office Location - Amarpali Leisure Park, Greater Noida"
+                  title="Rankrise Office Location"
+                  className="filter grayscale hover:grayscale-0 transition-all"
                 />
-              </div>
-              <p className="text-gray-400 text-xs mt-2 text-center">
-                📍 Greater Noida, Uttar Pradesh
-              </p>
-            </div>
-
-            {/* International Branches */}
-            <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-              <div className="flex items-center gap-2 mb-2">
-                <Globe className="w-4 h-4 text-purple-400" />
-                <h4 className="text-white text-sm font-semibold">International Branches</h4>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-green-400 flex items-center gap-1">
-                    <span>🇮🇳</span>
-                    <span>India</span>
-                  </span>
-                  <span className="text-green-400 text-xs bg-green-400/20 px-2 py-1 rounded">Current</span>
-                </div>
-                {internationalBranches.map((branch, index) => (
-                  <motion.div
-                    key={branch.country}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 + index * 0.1 }}
-                    className="flex items-center justify-between text-sm"
-                  >
-                    <span className="text-gray-400 flex items-center gap-1">
-                      <span>{branch.flag}</span>
-                      <span>{branch.country}</span>
-                    </span>
-                    <span className="text-yellow-400 text-xs bg-yellow-400/20 px-2 py-1 rounded">
-                      {branch.status}
-                    </span>
-                  </motion.div>
-                ))}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Legal Pages */}
+        {/* Legal Pages - More Compact */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-6"
+          className="flex flex-wrap justify-center gap-3 mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -296,7 +277,7 @@ export default function Footer() {
             <Link to={page.path} key={page.name}>
               <motion.span
                 whileHover={{ scale: 1.05, color: '#a78bfa' }}
-                className="text-gray-400 hover:text-purple-400 text-sm cursor-pointer"
+                className="text-gray-400 hover:text-purple-400 text-xs cursor-pointer"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -309,45 +290,30 @@ export default function Footer() {
         </motion.div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 mb-6" />
+        <div className="border-t border-white/10 mb-4" />
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Bottom Section - More Compact */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3">
           {/* Copyright */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-2 text-gray-400 text-sm"
+            className="flex items-center gap-1 text-gray-400 text-xs"
           >
-            <span>© 2025 Rankrise. Crafted with</span>
+            <span>© 2025 Rankrise. Made with</span>
             <motion.span
-              animate={{ scale: [1, 1.3, 1] }}
+              animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+              <Heart className="w-3 h-3 text-red-500 fill-red-500" />
             </motion.span>
-            <span>in New Delhi</span>
+            <span>in India</span>
           </motion.div>
           
-          {/* Social Links */}
-          <div className="flex items-center gap-3">
-            {socialLinks.map(({ icon: Icon, href, color, label }, index) => (
-              <motion.a
-                key={index}
-                href={href}
-                aria-label={label}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, type: 'spring' }}
-                whileHover={{ scale: 1.15, y: -3 }}
-                whileTap={{ scale: 0.9 }}
-                className={`w-10 h-10 rounded-full bg-white/10 hover:text-white flex items-center justify-center transition-all ${color} text-gray-300`}
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
+          {/* Additional Info */}
+          <div className="text-gray-400 text-xs text-center">
+            Transforming businesses with cutting-edge digital solutions
           </div>
         </div>
       </div>
@@ -359,13 +325,13 @@ export default function Footer() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 transition-all z-50 flex items-center justify-center group"
+        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 transition-all z-50 flex items-center justify-center group"
       >
         <motion.div
-          animate={{ y: [-2, 2, -2] }}
+          animate={{ y: [-1, 1, -1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-5 h-5" />
         </motion.div>
         
         {/* Ripple Effect */}
