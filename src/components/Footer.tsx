@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles, MapPin, Phone, MessageCircle, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
@@ -58,6 +58,15 @@ export default function Footer() {
   const address = "Amarpali Leisure Park B4 Flat 805, Greater Noida";
   const mobileNumber = "+91 7704 074 403";
   const whatsappLink = `https://wa.me/917704074403`;
+  
+  // Google Maps embed URL for Amarpali Leisure Park, Greater Noida
+  const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.060173769528!2d77.49818857526816!3d28.47447587575122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce826aafbd3c9%3A0x5e9373f4e7d8d2f7!2sAmarpali%20Leisure%20Park%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1699623456789!5m2!1sen!2sin`;
+
+  const internationalBranches = [
+    { country: 'UK', status: 'Coming Soon', flag: '🇬🇧' },
+    { country: 'USA', status: 'Coming Soon', flag: '🇺🇸' },
+    { country: 'UAE', status: 'Coming Soon', flag: '🇦🇪' },
+  ];
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
@@ -183,7 +192,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="lg:col-span-1"
+            className="lg:col-span-2"
           >
             <h3 className="font-bold text-white mb-3 text-base">Contact Info</h3>
             
@@ -213,18 +222,64 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors w-fit mb-4"
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors w-fit mb-6"
             >
               <MessageCircle className="w-4 h-4" />
               <span className="text-sm">Chat on WhatsApp</span>
             </motion.a>
 
             {/* Map Box */}
-            <div className="bg-white/10 rounded-lg p-3 border border-white/20">
+            <div className="bg-white/10 rounded-lg p-3 border border-white/20 mb-4">
               <h4 className="text-white text-sm font-semibold mb-2">Our Location</h4>
-              <div className="w-full h-32 bg-gray-600 rounded flex items-center justify-center">
-                <span className="text-gray-300 text-sm">Map View</span>
-                {/* You can replace this with an actual map component */}
+              <div className="w-full h-40 rounded overflow-hidden">
+                <iframe
+                  src={mapEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, borderRadius: '8px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Rankrise Office Location - Amarpali Leisure Park, Greater Noida"
+                />
+              </div>
+              <p className="text-gray-400 text-xs mt-2 text-center">
+                📍 Greater Noida, Uttar Pradesh
+              </p>
+            </div>
+
+            {/* International Branches */}
+            <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Globe className="w-4 h-4 text-purple-400" />
+                <h4 className="text-white text-sm font-semibold">International Branches</h4>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-green-400 flex items-center gap-1">
+                    <span>🇮🇳</span>
+                    <span>India</span>
+                  </span>
+                  <span className="text-green-400 text-xs bg-green-400/20 px-2 py-1 rounded">Current</span>
+                </div>
+                {internationalBranches.map((branch, index) => (
+                  <motion.div
+                    key={branch.country}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
+                    className="flex items-center justify-between text-sm"
+                  >
+                    <span className="text-gray-400 flex items-center gap-1">
+                      <span>{branch.flag}</span>
+                      <span>{branch.country}</span>
+                    </span>
+                    <span className="text-yellow-400 text-xs bg-yellow-400/20 px-2 py-1 rounded">
+                      {branch.status}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
