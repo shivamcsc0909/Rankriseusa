@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles, MapPin, Phone } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles, MapPin, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
@@ -47,6 +47,18 @@ export default function Footer() {
     ],
   };
 
+  const legalPages = [
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms & Conditions', path: '/terms-conditions' },
+    { name: 'Refund / Cancellation', path: '/refund-cancellation' },
+    { name: 'Cookies Policy', path: '/cookies-policy' },
+    { name: 'Disclaimer', path: '/disclaimer' },
+  ];
+
+  const address = "Amarpali Leisure Park B4 Flat 805, Greater Noida";
+  const mobileNumber = "+91 7704 074 403";
+  const whatsappLink = `https://wa.me/917704074403`;
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
       {/* Animated Background */}
@@ -80,7 +92,7 @@ export default function Footer() {
 
       <div className="container mx-auto px-4 py-12 relative z-10">
         {/* Top Section */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 mb-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/">
@@ -164,7 +176,82 @@ export default function Footer() {
               </ul>
             </motion.div>
           ))}
+
+          {/* Contact & Location Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="lg:col-span-1"
+          >
+            <h3 className="font-bold text-white mb-3 text-base">Contact Info</h3>
+            
+            {/* Address */}
+            <div className="flex items-start gap-2 mb-3">
+              <MapPin className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+              <p className="text-gray-300 text-sm">
+                {address}
+              </p>
+            </div>
+
+            {/* Mobile Number with WhatsApp */}
+            <div className="flex items-center gap-2 mb-4">
+              <Phone className="w-4 h-4 text-purple-400" />
+              <a 
+                href={`tel:${mobileNumber}`}
+                className="text-gray-300 hover:text-purple-400 text-sm"
+              >
+                {mobileNumber}
+              </a>
+            </div>
+
+            {/* WhatsApp Button */}
+            <motion.a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors w-fit mb-4"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span className="text-sm">Chat on WhatsApp</span>
+            </motion.a>
+
+            {/* Map Box */}
+            <div className="bg-white/10 rounded-lg p-3 border border-white/20">
+              <h4 className="text-white text-sm font-semibold mb-2">Our Location</h4>
+              <div className="w-full h-32 bg-gray-600 rounded flex items-center justify-center">
+                <span className="text-gray-300 text-sm">Map View</span>
+                {/* You can replace this with an actual map component */}
+              </div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Legal Pages */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-4 mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          {legalPages.map((page, index) => (
+            <Link to={page.path} key={page.name}>
+              <motion.span
+                whileHover={{ scale: 1.05, color: '#a78bfa' }}
+                className="text-gray-400 hover:text-purple-400 text-sm cursor-pointer"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+              >
+                {page.name}
+              </motion.span>
+            </Link>
+          ))}
+        </motion.div>
 
         {/* Divider */}
         <div className="border-t border-white/10 mb-6" />
@@ -185,7 +272,7 @@ export default function Footer() {
             >
               <Heart className="w-4 h-4 text-red-500 fill-red-500" />
             </motion.span>
-            <span>in New delhi</span>
+            <span>in New Delhi</span>
           </motion.div>
           
           {/* Social Links */}
