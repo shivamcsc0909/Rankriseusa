@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Heart, Sparkles, MapPin, Phone, MessageCircle, Globe } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, ArrowUp, Heart, Sparkles, MapPin, Phone, MessageCircle, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
@@ -8,6 +7,10 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,10 +75,10 @@ export default function Footer() {
     { number: "+91 7704 074 403", whatsapp: "917704074403" }
   ];
 
-  // Updated email addresses with support@rankriseusa.com
+  // Email addresses added here
   const emailAddresses = [
-    { email: "support@rankriseusa.com", label: "Support" },
-    { email: "hr@rankriseusa.com", label: "HR Department" }
+    { email: "hr@rankriseusa.com", label: "HR Department" },
+    { email: "info@rankriseusa.com", label: "General Inquiries" }
   ];
   
   const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.060173769528!2d77.49818857526816!3d28.47447587575122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce826aafbd3c9%3A0x5e9373f4e7d8d2f7!2sAmarpali%20Leisure%20Park%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1699623456789!5m2!1sen!2sin`;
@@ -119,13 +122,13 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4 py-6 relative z-10">
-        {/* Main Footer Content - Three Column Layout */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-4">
+        {/* Main Footer Content - Two Column Layout */}
+        <div className="grid lg:grid-cols-4 gap-6 mb-6">
           {/* Left Side - Services & Company */}
-          <div className="lg:col-span-2">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="lg:col-span-3">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
               {/* Brand Section */}
-              <div className="md:col-span-2 lg:col-span-1">
+              <div className="lg:col-span-2">
                 <Link to="/">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
@@ -146,7 +149,7 @@ export default function Footer() {
                 </p>
                 
                 {/* Newsletter */}
-                <div className="mb-3">
+                <div className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="w-4 h-4 text-purple-400" />
                     <p className="text-white font-semibold text-sm">Weekly Growth Tips</p>
@@ -262,54 +265,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center Column - Global Presence */}
+          {/* Right Side - Contact, Map & International */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex justify-center"
-          >
-            <div className="bg-white/5 rounded-lg p-4 border border-white/10 w-full max-w-xs">
-              <div className="flex items-center gap-2 mb-3">
-                <Globe className="w-4 h-4 text-purple-400" />
-                <h4 className="text-white text-sm font-semibold">Global Presence</h4>
-              </div>
-              <div className="space-y-2">
-                {internationalBranches.map((branch, index) => (
-                  <motion.div
-                    key={branch.country}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 + index * 0.1 }}
-                    className="flex items-center justify-between text-sm"
-                  >
-                    <span className={`flex items-center gap-1 text-xs ${
-                      branch.status === 'Current' ? 'text-green-400' : 'text-gray-400'
-                    }`}>
-                      <span>{branch.flag}</span>
-                      <span>{branch.country}</span>
-                    </span>
-                    <span className={`text-xs px-2 py-1 rounded ${
-                      branch.status === 'Current' 
-                        ? 'text-green-400 bg-green-400/20' 
-                        : 'text-yellow-400 bg-yellow-400/20'
-                    }`}>
-                      {branch.status}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Side - Contact & Map */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
             className="space-y-4"
           >
             {/* Contact Info */}
@@ -339,7 +300,7 @@ export default function Footer() {
                 ))}
               </div>
 
-              {/* Email Addresses - Updated with support@rankriseusa.com */}
+              {/* Email Addresses - Added Section */}
               <div className="space-y-1 mb-3">
                 {emailAddresses.map((emailItem, index) => (
                   <div key={index} className="flex items-center gap-2">
@@ -385,12 +346,46 @@ export default function Footer() {
                 />
               </div>
             </div>
+
+            {/* International Branches */}
+            <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+              <div className="flex items-center gap-2 mb-2">
+                <Globe className="w-4 h-4 text-purple-400" />
+                <h4 className="text-white text-sm font-semibold">Global Presence</h4>
+              </div>
+              <div className="space-y-2">
+                {internationalBranches.map((branch, index) => (
+                  <motion.div
+                    key={branch.country}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
+                    className="flex items-center justify-between text-sm"
+                  >
+                    <span className={`flex items-center gap-1 text-xs ${
+                      branch.status === 'Current' ? 'text-green-400' : 'text-gray-400'
+                    }`}>
+                      <span>{branch.flag}</span>
+                      <span>{branch.country}</span>
+                    </span>
+                    <span className={`text-xs px-2 py-1 rounded ${
+                      branch.status === 'Current' 
+                        ? 'text-green-400 bg-green-400/20' 
+                        : 'text-yellow-400 bg-yellow-400/20'
+                    }`}>
+                      {branch.status}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
 
         {/* Legal Pages */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-3 mb-3"
+          className="flex flex-wrap justify-center gap-3 mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -412,10 +407,10 @@ export default function Footer() {
         </motion.div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 mb-3" />
+        <div className="border-t border-white/10 mb-4" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3">
           {/* Copyright */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -441,6 +436,31 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 transition-all z-50 flex items-center justify-center group"
+      >
+        <motion.div
+          animate={{ y: [-1, 1, -1] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.div>
+        
+        {/* Ripple Effect */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-white"
+          initial={{ scale: 0, opacity: 0.5 }}
+          whileHover={{ scale: 1.5, opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+      </motion.button>
     </footer>
   );
 }
