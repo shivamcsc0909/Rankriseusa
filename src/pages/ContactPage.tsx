@@ -7,7 +7,11 @@ export default function ContactPage() {
   const whatsappLink = "https://wa.me/919278074403";
   const phoneNumber1 = "+91 92780 74403";
   const phoneNumber2 = "+91 77040 74403";
-  const email = "hello@rankriseuse.com";
+  const emails = [
+    "info@rankriseusa.com",
+    "hr@rankriseusa.com", 
+    "support@rankriseusa.com"
+  ];
   const address = "Amarpali Leisure Park, B4 Flat 805, Greater Noida, Uttar Pradesh 201310";
 
   const quickActions = [
@@ -22,10 +26,10 @@ export default function ContactPage() {
     { 
       icon: Mail, 
       label: 'Email Us', 
-      value: email, 
+      value: 'Multiple Options', 
       color: 'from-purple-500 to-pink-500',
-      link: `mailto:${email}`,
-      description: 'Get detailed responses within hours'
+      link: `mailto:${emails[0]}`,
+      description: 'Choose from different departments'
     },
     { 
       icon: MessageCircle, 
@@ -129,9 +133,9 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-20 min-h-screen">
-      {/* Enhanced Hero Section - Ready to Grow Full Width */}
-      <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
+    <div className="pt-20 min-h-screen bg-background">
+      {/* Enhanced Hero Section */}
+      <section className="relative py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 relative">
           <motion.div
@@ -144,17 +148,17 @@ export default function ContactPage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6"
+              className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full mb-8"
             >
-              <Star className="w-4 h-4 fill-primary" />
-              <span className="text-sm font-medium">Let's Build Something Amazing</span>
+              <Star className="w-5 h-5 fill-primary" />
+              <span className="text-base font-medium">Let's Build Something Amazing</span>
             </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 leading-tight">
               Ready to <span className="text-gradient bg-gradient-to-r from-primary to-primary/70">Grow</span> Together?
             </h1>
             
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
               Get in touch with our expert team and let's discuss how we can transform your digital presence and drive real results for your business.
             </p>
 
@@ -163,13 +167,13 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-4 text-lg h-14">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
+              <Button variant="outline" size="lg" className="px-10 py-4 text-lg h-14 border-2">
                 Book a Consultation
               </Button>
             </motion.div>
@@ -179,12 +183,12 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto mt-12"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-3xl mx-auto mt-16"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center p-4 bg-background/50 rounded-lg backdrop-blur-sm">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+                <div key={index} className="text-center p-6 bg-background/80 rounded-xl backdrop-blur-sm border border-border/50">
+                  <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                  <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -193,23 +197,23 @@ export default function ContactPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Why Choose <span className="text-gradient">RankRise</span>?
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We combine expertise, innovation, and dedication to deliver exceptional results for your business
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -217,13 +221,13 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-all duration-300 group text-center"
+                className="bg-card rounded-2xl p-8 border border-border hover:shadow-2xl transition-all duration-500 group text-center hover:border-primary/20"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-3">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="font-bold text-xl mb-4">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -231,23 +235,23 @@ export default function ContactPage() {
       </section>
 
       {/* Enhanced Quick Actions */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Multiple Ways to <span className="text-gradient">Connect</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Choose your preferred method to get in touch with us
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {quickActions.map((action, index) => (
               <motion.div
                 key={action.label}
@@ -256,18 +260,18 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ 
-                  scale: 1.02,
-                  y: -5
+                  scale: 1.05,
+                  y: -8
                 }}
-                className="bg-card rounded-xl p-6 cursor-pointer border border-border hover:shadow-lg transition-all duration-300 group"
+                className="bg-card rounded-2xl p-8 cursor-pointer border border-border hover:shadow-2xl transition-all duration-500 group h-full flex flex-col"
                 onClick={() => action.link && window.open(action.link, '_blank')}
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <action.icon className="w-6 h-6 text-white" />
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <action.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-center">{action.label}</h3>
-                <p className="text-primary font-semibold text-center mb-2">{action.value}</p>
-                <p className="text-sm text-muted-foreground text-center">{action.description}</p>
+                <h3 className="font-bold text-xl mb-3 text-center">{action.label}</h3>
+                <p className="text-primary font-semibold text-lg text-center mb-3">{action.value}</p>
+                <p className="text-muted-foreground text-center flex-grow">{action.description}</p>
               </motion.div>
             ))}
           </div>
@@ -275,25 +279,27 @@ export default function ContactPage() {
       </section>
 
       {/* India Operation Center Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full mb-4">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium">Fully Operational</span>
+            <div className="inline-flex items-center gap-3 bg-green-100 text-green-800 px-6 py-3 rounded-full mb-6">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-base font-semibold">Fully Operational</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               India <span className="text-gradient">Operation Center</span>
             </h2>
-            <p className="text-muted-foreground text-lg">Our fully operational center in Greater Noida serving clients nationwide</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our fully operational center in Greater Noida serving clients nationwide with comprehensive digital solutions
+            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -301,9 +307,9 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <div className="bg-card rounded-2xl shadow-lg p-6 sm:p-8 border border-border">
-                <h3 className="text-2xl font-bold mb-2">Send us a Message</h3>
-                <p className="text-muted-foreground mb-6">
+              <div className="bg-card rounded-3xl shadow-xl p-8 sm:p-10 border border-border">
+                <h3 className="text-3xl font-bold mb-4">Send us a Message</h3>
+                <p className="text-muted-foreground text-lg mb-8">
                   Fill out the form below and we'll get back to you within 24 hours
                 </p>
                 <Contact />
@@ -315,85 +321,93 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6 order-1 lg:order-2"
+              className="space-y-8 order-1 lg:order-2"
             >
               {/* Office Info Card */}
-              <div className="bg-card rounded-2xl shadow-lg p-6 sm:p-8 border-l-4 border-green-500">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-green-600" />
+              <div className="bg-card rounded-3xl shadow-xl p-8 sm:p-10 border-l-4 border-green-500">
+                <div className="flex items-start gap-6 mb-8">
+                  <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-7 h-7 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-1">India Operation Center</h3>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-green-600 text-sm font-medium">Fully Operational</span>
+                    <h3 className="font-bold text-2xl mb-2">India Operation Center</h3>
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-green-600 font-semibold">Fully Operational</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
-                    <p className="text-sm">{address}</p>
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="w-6 h-6 text-muted-foreground mt-1 flex-shrink-0" />
+                    <p className="text-base">{address}</p>
                   </div>
                   
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                    <div className="space-y-1">
-                      <a href={`tel:${phoneNumber1}`} className="text-sm hover:text-primary transition-colors block">
+                  <div className="flex items-start gap-4">
+                    <Phone className="w-6 h-6 text-muted-foreground mt-1 flex-shrink-0" />
+                    <div className="space-y-2">
+                      <a href={`tel:${phoneNumber1}`} className="text-base hover:text-primary transition-colors block font-medium">
                         {phoneNumber1}
                       </a>
-                      <a href={`tel:${phoneNumber2}`} className="text-sm hover:text-primary transition-colors block">
+                      <a href={`tel:${phoneNumber2}`} className="text-base hover:text-primary transition-colors block font-medium">
                         {phoneNumber2}
                       </a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                    <a href={`mailto:${email}`} className="text-sm hover:text-primary transition-colors">
-                      {email}
-                    </a>
+                  <div className="flex items-start gap-4">
+                    <Mail className="w-6 h-6 text-muted-foreground mt-1 flex-shrink-0" />
+                    <div className="space-y-2">
+                      {emails.map((email, index) => (
+                        <a 
+                          key={index} 
+                          href={`mailto:${email}`} 
+                          className="text-base hover:text-primary transition-colors block font-medium"
+                        >
+                          {email}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                   
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                    <span className="text-sm">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                  <div className="flex items-center gap-4">
+                    <Clock className="w-6 h-6 text-muted-foreground flex-shrink-0" />
+                    <span className="text-base font-medium">Mon - Sat: 9:00 AM - 7:00 PM</span>
                   </div>
                   
-                  <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                    <span className="text-sm">Full Service Team Available</span>
+                  <div className="flex items-center gap-4">
+                    <Users className="w-6 h-6 text-muted-foreground flex-shrink-0" />
+                    <span className="text-base font-medium">Full Service Team Available</span>
                   </div>
                 </div>
 
                 {/* Features */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {officeLocations[0].features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-base font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <a 
                     href={whatsappLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg transition-colors justify-center text-sm font-medium"
+                    className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-xl transition-all duration-300 justify-center text-base font-semibold hover:shadow-lg"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-5 h-5" />
                     <span>WhatsApp</span>
                   </a>
                   <a 
                     href={`tel:${phoneNumber1}`}
-                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg transition-colors justify-center text-sm font-medium"
+                    className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-6 py-4 rounded-xl transition-all duration-300 justify-center text-base font-semibold hover:shadow-lg"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-5 h-5" />
                     <span>Call Now</span>
                   </a>
                 </div>
@@ -404,18 +418,18 @@ export default function ContactPage() {
       </section>
 
       {/* Full Width Map Section */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Find Our <span className="text-gradient">Location</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Visit our India Operation Center in Greater Noida. We're easily accessible and ready to welcome you.
             </p>
           </motion.div>
@@ -425,16 +439,16 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-card rounded-2xl shadow-lg overflow-hidden border border-border"
+            className="bg-card rounded-3xl shadow-xl overflow-hidden border border-border"
           >
-            <div className="p-6 border-b bg-muted/20">
-              <h3 className="font-bold flex items-center gap-2 text-xl">
-                <MapPin className="w-6 h-6 text-primary" />
+            <div className="p-8 border-b bg-muted/20">
+              <h3 className="font-bold flex items-center gap-3 text-2xl">
+                <MapPin className="w-7 h-7 text-primary" />
                 India Operation Center - Greater Noida
               </h3>
-              <p className="text-muted-foreground mt-2">{address}</p>
+              <p className="text-muted-foreground mt-3 text-lg">{address}</p>
             </div>
-            <div className="w-full h-80 sm:h-96 lg:h-[500px]">
+            <div className="w-full h-96 sm:h-[500px] lg:h-[600px]">
               <iframe
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
@@ -451,28 +465,28 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Enhanced Global Offices Section - International Branch Coming Soon 2025 */}
-      <section className="py-16 bg-background">
+      {/* Enhanced Global Offices Section */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-4">
-              <Globe className="w-4 h-4" />
-              <span className="text-sm font-medium">Global Expansion 2025</span>
+            <div className="inline-flex items-center gap-3 bg-blue-100 text-blue-800 px-6 py-3 rounded-full mb-6">
+              <Globe className="w-5 h-5" />
+              <span className="text-base font-semibold">Global Expansion 2025</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               International <span className="text-gradient">Branches Coming Soon</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We're expanding globally to serve you better across different time zones and regions
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {officeLocations.slice(1).map((office, index) => (
               <motion.div
                 key={office.country}
@@ -480,22 +494,22 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-2xl shadow-lg p-6 border border-border relative overflow-hidden group hover:shadow-xl transition-all duration-300"
+                className="bg-card rounded-3xl shadow-xl p-8 border border-border relative overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:border-primary/20"
               >
                 {/* Status Badge */}
-                <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                <div className="absolute top-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                   Coming 2025
                 </div>
                 
                 {/* Gradient Header */}
-                <div className={`bg-gradient-to-r ${office.gradient} rounded-xl p-4 mb-4 text-white group-hover:scale-105 transition-transform duration-300`}>
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{office.flag}</span>
+                <div className={`bg-gradient-to-r ${office.gradient} rounded-2xl p-6 mb-6 text-white group-hover:scale-105 transition-transform duration-300 shadow-lg`}>
+                  <div className="flex items-center gap-4">
+                    <span className="text-3xl">{office.flag}</span>
                     <div>
-                      <h3 className="font-bold text-lg">{office.country}</h3>
-                      <div className="flex items-center gap-2">
+                      <h3 className="font-bold text-xl">{office.country}</h3>
+                      <div className="flex items-center gap-2 mt-1">
                         <div className="w-2 h-2 bg-white/80 rounded-full"></div>
-                        <span className="text-white/90 text-sm font-medium">
+                        <span className="text-white/90 font-medium">
                           Launching 2025
                         </span>
                       </div>
@@ -503,20 +517,20 @@ export default function ContactPage() {
                   </div>
                 </div>
                 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-muted-foreground">{office.address}</p>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="w-5 h-5 text-muted-foreground mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground text-base">{office.address}</p>
                   </div>
                   
                   {/* Features */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm">Planned Services:</h4>
-                    <div className="space-y-2">
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-lg">Planned Services:</h4>
+                    <div className="space-y-3">
                       {office.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2">
-                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${office.gradient}`}></div>
-                          <span className="text-xs text-muted-foreground">{feature}</span>
+                        <div key={featureIndex} className="flex items-center gap-3">
+                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${office.gradient}`}></div>
+                          <span className="text-muted-foreground text-base">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -525,8 +539,8 @@ export default function ContactPage() {
 
                 <Button 
                   variant="outline" 
-                  size="sm" 
-                  className="w-full mt-6 cursor-not-allowed opacity-50"
+                  size="lg" 
+                  className="w-full mt-8 h-12 cursor-not-allowed opacity-50 text-base"
                   disabled
                 >
                   Coming Soon - 2025
@@ -541,20 +555,20 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="max-w-2xl mx-auto mt-12"
+            className="max-w-4xl mx-auto mt-16"
           >
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center border border-blue-200">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-blue-500" />
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 text-center border border-blue-200 shadow-lg">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Globe className="w-10 h-10 text-blue-500" />
               </div>
-              <h3 className="font-bold text-xl mb-2">Global Expansion 2025</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="font-bold text-2xl mb-4">Global Expansion 2025</h3>
+              <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
                 We're expanding to 6 new international locations in 2025 to serve you better across the globe. 
                 Be the first to know when we launch in your region.
               </p>
-              <Button className="bg-blue-500 hover:bg-blue-600">
+              <Button className="bg-blue-500 hover:bg-blue-600 px-8 py-4 h-12 text-base">
                 Notify Me About New Locations
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </motion.div>
