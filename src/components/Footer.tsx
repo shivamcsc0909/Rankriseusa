@@ -75,6 +75,12 @@ export default function Footer() {
     { number: "+91 9278 074 403", whatsapp: "919278074403" },
     { number: "+91 7704 074 403", whatsapp: "917704074403" }
   ];
+
+  // Email addresses added here
+  const emailAddresses = [
+    { email: "hr@rankriseusa.com", label: "HR Department" },
+    { email: "info@rankriseusa.com", label: "General Inquiries" }
+  ];
   
   const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.060173769528!2d77.49818857526816!3d28.47447587575122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce826aafbd3c9%3A0x5e9373f4e7d8d2f7!2sAmarpali%20Leisure%20Park%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1699623456789!5m2!1sen!2sin`;
 
@@ -281,7 +287,7 @@ export default function Footer() {
               </div>
 
               {/* Mobile Numbers */}
-              <div className="space-y-1 mb-3">
+              <div className="space-y-1 mb-2">
                 {mobileNumbers.map((mobile, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <Phone className="w-3 h-3 text-purple-400 flex-shrink-0" />
@@ -290,6 +296,21 @@ export default function Footer() {
                       className="text-gray-300 hover:text-purple-400 text-xs"
                     >
                       {mobile.number}
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              {/* Email Addresses - Added Section */}
+              <div className="space-y-1 mb-3">
+                {emailAddresses.map((emailItem, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <Mail className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                    <a 
+                      href={`mailto:${emailItem.email}`}
+                      className="text-gray-300 hover:text-purple-400 text-xs break-all"
+                    >
+                      {emailItem.email}
                     </a>
                   </div>
                 ))}
