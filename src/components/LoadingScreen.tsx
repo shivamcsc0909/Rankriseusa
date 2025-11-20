@@ -42,7 +42,7 @@ export default function LoadingScreen() {
           transition={{ delay: 0.3 }}
           className="text-4xl font-bold text-gradient mb-4"
         >
-          Rankriseuse
+          Rankriseusa
         </motion.h1>
 
         {/* Loading Bar */}
